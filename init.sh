@@ -5,7 +5,7 @@
 FILE=/etc/shiny-server/init_done
 if [ ! -f "$FILE" ]; then
         echo "INSTALLING PACKAGES!"
-	R -e "install.packages(c('magrittr', 'ROI', 'ROI.plugin.glpk', 'ompr', 'ompr.roi', 'pryr'), repos='http://cran.rstudio.com/', dependencies=TRUE)"
+	R -e "install.packages(c('readxl', 'magrittr', 'ROI', 'ROI.plugin.glpk', 'ompr', 'ompr.roi', 'pryr'), repos='http://cran.rstudio.com/', dependencies=TRUE)"
 	touch /etc/shiny-server/init_done
 fi
 
