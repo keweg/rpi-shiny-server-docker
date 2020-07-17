@@ -7,9 +7,10 @@ RUN apt-get install -y gfortran libreadline6-dev libx11-dev libxt-dev \
                                libcurl4-openssl-dev \
                                texinfo texlive texlive-fonts-extra \
                                screen wget libpcre2-dev \
-							   git apt-utils sed \
-							   make g++ \
-							   default-jdk
+				   git apt-utils sed \
+				   make g++ \
+				   default-jdk \
+				   libglpk.dev
 
 #Install R
 WORKDIR /usr/local/src
@@ -27,7 +28,7 @@ RUN rm -rf R-4.0.0*
 WORKDIR /
 
 #Install R libs
-RUN R -e "install.packages(c('shiny', 'Cairo'), repos='http://cran.rstudio.com/')"
+RUN R -e "install.packages(c('shiny', 'Cairo', 'Rglpk', 'readxl'), repos='http://cran.rstudio.com/')"
 
 #Install cmake
 #Info: libssl-dev is required to compile cmake 3.17.2, for 3.17.0 it's not needed
